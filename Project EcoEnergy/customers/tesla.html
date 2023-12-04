@@ -26,6 +26,26 @@
     <link href="../css/style.css" rel="stylesheet">
 </head>
 
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        fetch('http://200.133.17.234:5000/eco_energy')
+            .then(response => response.json())
+            .then(data => {
+                // Obtém os números da resposta da API
+                const kw_atual = data.kw_atual;
+                const kw_mensal = data.kw_mes;
+
+    
+                // Exibe os números no DOM
+                document.getElementById('kw_atual').textContent += kw_atual;
+                document.getElementById('kw_mensal').textContent += kw_mensal;
+            })
+            .catch(error => console.error('Erro na requisição à API:', error));
+    });
+    
+</script>
+
 <body>
 
 
@@ -108,6 +128,10 @@
                             
                             <br><b></b><br>    
                             Em suma, a Tesla não é apenas uma fabricante de carros; é uma força inspiradora que desafia o status quo, impulsionando a inovação em direção a um futuro mais limpo, eficiente e sustentável. A visão ousada da Tesla continua a moldar a indústria e a narrativa global em torno da mobilidade elétrica e energia renovável.</p>
+
+                            <h5 class="fw-bold text-primary text-uppercase" ID = kw_atual> kw_atual : </h5>
+                            <h5 class="fw-bold text-primary text-uppercase" ID = kw_mensal> kw_mensal : </h5>
+                            
                         <div class="row g-0 mb-3">
                         </div>
                         <div class="d-flex align-items-center mb-4 wow fadeIn" data-wow-delay="0.6s">

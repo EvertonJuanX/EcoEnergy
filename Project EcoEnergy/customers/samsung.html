@@ -26,6 +26,26 @@
     <link href="../css/style.css" rel="stylesheet">
 </head>
 
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        fetch('http://200.133.17.234:5000/eco_energy')
+            .then(response => response.json())
+            .then(data => {
+                // Obtém os números da resposta da API
+                const kw_atual = data.kw_atual;
+                const kw_mensal = data.kw_mes;
+
+    
+                // Exibe os números no DOM
+                document.getElementById('kw_atual').textContent += kw_atual;
+                document.getElementById('kw_mensal').textContent += kw_mensal;
+            })
+            .catch(error => console.error('Erro na requisição à API:', error));
+    });
+    
+</script>
+
 <body>
 
 
@@ -98,7 +118,7 @@
                             <h5 class="fw-bold text-primary text-uppercase">Samsung</h5>
                             <h1 class="mb-0">A gigante global da tecnologia</h1>
                         </div>
-                        <p class="mb-4"><b>Tesla</b><br>
+                        <p class="mb-4"><b>Samsung</b><br>
                             A Samsung, gigante global da tecnologia, é uma empresa que transcende fronteiras ao criar produtos inovadores e influenciar positivamente a forma como interagimos com o mundo digital. Desde sua fundação em 1938, na Coreia do Sul, a Samsung se destacou pela sua busca constante pela excelência e pela capacidade de antecipar as necessidades do mercado.
                             No universo da eletrônica de consumo, a Samsung é sinônimo de qualidade e sofisticação. Seja através de seus smartphones, televisores, eletrodomésticos ou dispositivos wearables, a empresa tem uma presença marcante, oferecendo tecnologia de ponta e design elegante. A linha Galaxy, por exemplo, é um testemunho do compromisso da Samsung em proporcionar experiências excepcionais aos seus usuários.
                             
@@ -107,7 +127,16 @@
                             A Samsung não é apenas uma fabricante de produtos eletrônicos; é uma impulsionadora da inovação. Sua presença é sentida em setores tão diversos quanto saúde, educação e entretenimento. Projetos como a Samsung Solve for Tomorrow destacam o compromisso da empresa com a responsabilidade social, utilizando a tecnologia para resolver desafios do mundo real.
                             
                             <br><b></b><br>    
-                            Em resumo, a Samsung é mais do que uma marca; é uma força motriz na evolução tecnológica global. Seu legado de inovação continua a moldar o futuro, proporcionando às pessoas ao redor do mundo soluções tecnológicas que enriquecem suas vidas e conectam comunidades de maneiras significativas.</p>
+                            Em resumo, a Samsung é mais do que uma marca;
+                            é uma força motriz na evolução tecnológica global. 
+                            Seu legado de inovação continua a moldar o futuro, 
+                            proporcionando às pessoas ao redor do mundo soluções 
+                            tecnológicas que enriquecem suas vidas e conectam comunidades de maneiras significativas.</p>
+                            
+                            <h5 class="fw-bold text-primary text-uppercase" ID = kw_atual> kw_atual : </h5>
+                            <h5 class="fw-bold text-primary text-uppercase" ID = kw_mensal> kw_mensal : </h5>
+                            
+
                         <div class="row g-0 mb-3">
                         </div>
                         <div class="d-flex align-items-center mb-4 wow fadeIn" data-wow-delay="0.6s">
@@ -122,6 +151,8 @@
             </div>
         </div>
         <!-- About End -->
+
+        
     
         <!-- Footer Start -->
        <div class="container-fluid bg-dark text-light mt-5 wow fadeInUp" data-wow-delay="0.1s">
